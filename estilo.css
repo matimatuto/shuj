@@ -1,0 +1,108 @@
+body {
+  background-color: #1E1E1E;
+  padding: 10px;
+  color: #f7f2f2;
+}
+
+.titleContainer {
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between;
+  max-width: 1200px; 
+  margin: 0 auto;
+  padding: 0 10px;
+  
+}
+
+.titulo {
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+}
+
+.logo {
+  width: 70px;
+}
+
+.logo:hover {
+  animation-name: shake;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(10deg); }
+  40% { transform: rotate(-10deg); }
+  60% { transform: rotate(10deg); }
+  80% { transform: rotate(-10deg); }
+  100% { transform: rotate(0deg); }
+}
+  
+.tg-wrap {
+  padding-top: 20px;
+  display: flex; 
+}
+
+.tg  {
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 0px auto;
+  background-color: #144474;
+
+}
+
+.tg td {
+  border-color:  #D5B895;
+  border-style: solid;
+  border-width: 2px;
+  font-size: 20px;
+  overflow: hidden;
+  padding: 10px 10px;
+  word-break: normal;
+  
+}
+
+.tgCabezera {
+  border-color:  #D5B895;
+  border-style: solid;
+  border-width: 2px;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  overflow: hidden;
+  padding: 10px 5px;
+  word-break: normal;
+}
+
+.tg .tg-0lax {
+  text-align: left;
+  vertical-align: top
+}
+
+@media screen and (max-width: 767px) {
+  .tg {
+    width: auto !important;
+  }
+  .tg col {
+    width: auto !important;
+  }
+  .tg-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: auto 0px;
+  }
+}
+
+.tg-foto {
+  text-align: center;
+}
+
+.fotoTabla {
+  width: 100px;
+}
+
+.fotoTabla:hover {
+  filter: grayscale(100%);
+
+}
