@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title class="loginInicio">Login</title>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="estiloInicioSesion.css">
+</head>
+<body>
+  <!--CREACION DEL LOGIN-->
+    <div class="form-container">
+        <p class="title">Inicio Sesion</p>
+        <div class="row" id="pwd-container">   
+            <div>
+                <section class="login-form">
+                    <form class="form" method="post" action="validaUsuario.php" role="login">  
+                        <div class="input-group">
+                            <label for="username">Username</label>
+                            <input type="email" name="email" id="username" placeholder="">
+                        </div>
+                        <!-- <input type="email" name="email" placeholder="Email" required class="form-control input-lg"/> -->
+                        
+                        <div class="input-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="">
+                            <div class="forgot">
+                                <a rel="noopener noreferrer" href="#">Forgot Password ?</a>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" name="go" class="sign">Accesar</button>
+                        <!-- <div>
+                            <a href="registrarUsuario.html">Crear cuenta</a> or <a href="#">reset password</a>
+                        </div> -->
+                    </form>
+                    <p class="signup"> 
+                        Don't have an account?
+                        <a rel="noopener noreferrer" href="registrarUsuario.html" class="">Sign up</a>
+                    </p>
+                </section>  
+            </div>          
+        </div>
+      </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>
