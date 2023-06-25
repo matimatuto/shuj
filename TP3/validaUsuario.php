@@ -1,54 +1,45 @@
 <?php
-$usuario = $_POST['email'];
-$contraseña = $_POST['password'];
+    $usuario = $_POST['email'];
+    $contraseña = $_POST['password'];
 
-include('database.php');
-
-// Conectar a la BD
-$conexion = mysqli_connect("localhost", "root", "", "tablausuarios");
-
-if (!$conexion) {
-    die("Error de conexión: " . mysqli_connect_error());
-}
+    session_start();
+    $_SESSION['usuario'] = $usuario;
 
 
 
 
-$consulta = "SELECT * FROM login WHERE mail='$usuario' and contraseña='$contraseña'";
-$resultado = mysqli_query($conexion, $consulta);
+    include('database.php');
 
-if( $usuario == "ADMIN" &&  $contraseña == "ADMIN")
-{
-    ?>
-    <div>
-        <!-- <h1>ADMIN</h1> -->
-        <script>window.location.href = "index.html"</script>;
-    </div>
-    <?php
-}
-elseif ($resultado) {
-    $filas = mysqli_num_rows($resultado);
-    if ($filas > 0) {
-        ?>
-        <div>
-            <script>window.location.href = "index.html"</script>;
-        </div>
-        <?php
+    // Conectar a la BD
+    $conexion = mysqli_connect("localhost", "root", "", "tablausuarios");
+
+    if (!$conexion) {
+        die("Error de conexión: " . mysqli_connect_error());
+    }
+
+    $consulta = "SELECT * FROM login WHERE mail='$usuario' and contraseña='$contraseña'";
+    $resultado = mysqli_query($conexion, $consulta);
+
+    if( $usuario == "ADMIN" &&  $contraseña == "ADMIN")
+    {
+        header("location:index.php");
+
+    }
+    else if ($resultado) {
+        $filas = mysqli_num_rows($resultado);
+        if ($filas > 0) {
+            header("location:index.php");
+        } 
+        else 
+        {
+            echo "error";
+        }
     } 
     else 
     {
-        ?>
-        <div>
-            <h1>Error</h1>
-        </div>
-        <?php
+        echo "Error en la consulta: " . mysqli_error($conexion);
     }
-} 
-else 
-{
-    echo "Error en la consulta: " . mysqli_error($conexion);
-}
 
-mysqli_free_result($resultado);
-mysqli_close($conexion);
+    mysqli_free_result($resultado);
+    mysqli_close($conexion);
 ?>

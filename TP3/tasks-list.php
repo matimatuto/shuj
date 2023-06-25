@@ -15,7 +15,7 @@
       'apellido' => $row['apellido'],
       'id' => $row['id'],
       'dni' => $row['dni'],
-      'mail' => $row['mail']
+      'mail' => $row['mail'],
     );
   }
   $jsonstring = json_encode($json);
