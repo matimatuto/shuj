@@ -64,22 +64,42 @@
         </form>
       </div>
     </div>
+
   
-    <!-- TABLE  -->
-    <div>
-      <table class="tg">
-        <thead>
-          <tr>
-            <td class="tgCabezera">Id</td>
-            <td class="tgCabezera">Name</td>
-            <td class="tgCabezera">Descripción</td>
-            <td class="tgCabezera">Borrar</td>
-            <td class="tgCabezera">Editar</td>
-          </tr>
-        </thead>
-        <tbody id="tasks" class="tg-0lax"></tbody>
-      </table>
-    </div>
+    <!-- TABLE -->
+<?php if ($_SESSION['usuario'] == "ADMIN") { ?>
+  <div>
+    <table class="tg">
+      <thead>
+        <tr>
+          <td class="tgCabezera">Id</td>
+          <td class="tgCabezera">Usuario</td>
+          <td class="tgCabezera">Name</td>
+          <td class="tgCabezera">Descripción</td>
+          <td class="tgCabezera">Borrar</td>
+          <td class="tgCabezera">Editar</td>
+        </tr>
+      </thead>
+      <tbody id="tasks" class="tg-0lax"></tbody>
+    </table>
+  </div>
+<?php } else { ?>
+  <div>
+    <table class="tg">
+      <thead>
+        <tr>
+          <td class="tgCabezera">Id</td>
+          <td class="tgCabezera">Name</td>
+          <td class="tgCabezera">Descripción</td>
+          <td class="tgCabezera">Borrar</td>
+          <td class="tgCabezera">Editar</td>
+        </tr>
+      </thead>
+      <tbody id="tasks" class="tg-0lax"></tbody>
+    </table>
+  </div>
+<?php } ?>
+
 
     <script
       src="https://code.jquery.com/jquery-3.3.1.min.js"

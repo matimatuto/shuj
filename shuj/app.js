@@ -56,38 +56,89 @@ $(document).ready(function() {
   });
 
   // Fetching Tasks
-  function fetchTasks() {
-    $.ajax({
-      url: 'tasks-list.php',
-      type: 'GET',
-      success: function(response) {
-        const tasks = JSON.parse(response);
-        let template = '';
-        tasks.forEach(task => {
-          template += `
-                  <tr taskId="${task.id}">
-                  <td>${task.id}</td>
-                  <td>
-                    ${task.name} 
-                  </td>
-                  <td>${task.description}</td>
-                  <td>
-                    <button class="task-delete btn btn-danger">
-                     Delete 
-                    </button>
-                  </td>
-                  <td>
-                    <button class="task-item btn btn">
-                     Edit 
-                    </button>
-                  </td>
-                  </tr>
-                `
-        });
-        $('#tasks').html(template);
-      }
-    });
+  var username; // Variable para almacenar el nombre de usuario
+
+$.ajax({
+  url: 'get-username.php',
+  method: 'GET',
+  success: function(response) {
+    username = response;
+    console.log('Nombre de usuario:', username);
+
+    if (username == "ADMIN") {
+      fetchTasksAdmin(); // Llama a la función fetchTasksAdmin()
+    } else {
+      fetchTasks(); // Llama a la función fetchTasks()
+    }
+  },
+  error: function(xhr, status, error) {
+    console.log('Error al obtener el nombre de usuario:', error);
   }
+});
+
+function fetchTasksAdmin() {
+  $.ajax({
+    url: 'tasks-list.php',
+    type: 'GET',
+    success: function(response) {
+      const tasks = JSON.parse(response);
+      let template = '';
+      tasks.forEach(task => {
+        template += `
+          <tr taskId="${task.id}">
+            <td>${task.id}</td>
+            <td>${task.usuario}</td>
+            <td>${task.name}</td>
+            <td>${task.description}</td>
+            <td>
+              <button class="task-delete btn btn-danger">
+                Delete
+              </button>
+            </td>
+            <td>
+              <button class="task-item btn btn">
+                Edit
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+      $('#tasks').html(template);
+    }
+  });
+}
+
+function fetchTasks() {
+  $.ajax({
+    url: 'tasks-list.php',
+    type: 'GET',
+    success: function(response) {
+      const tasks = JSON.parse(response);
+      let template = '';
+      tasks.forEach(task => {
+        template += `
+          <tr taskId="${task.id}">
+            <td>${task.id}</td>
+            <td>${task.name}</td>
+            <td>${task.description}</td>
+            <td>
+              <button class="task-delete btn btn-danger">
+                Delete
+              </button>
+            </td>
+            <td>
+              <button class="task-item btn btn">
+                Edit
+              </button>
+            </td>
+          </tr>
+        `;
+      });
+      $('#tasks').html(template);
+    }
+  });
+}
+
 
   // Get a Single Task by Id 
   $(document).on('click', '.task-item', (e) => {

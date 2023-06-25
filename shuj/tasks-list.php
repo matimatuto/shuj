@@ -20,6 +20,7 @@
         'name' => $row['name'],
         'description' => $row['description'],
         'id' => $row['id'],
+        'usuario' => $row['usuario']
       );
     }
     $jsonstring = json_encode($json);
