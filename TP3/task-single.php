@@ -16,10 +16,8 @@
     while($row = mysqli_fetch_array($result)) {
       $json[] = array(
         'name' => $row['name'],
-        'apellido' => $row['apellido'],
+        'description' => $row['description'],
         'id' => $row['id'],
-        'dni' => $row['dni'],
-        'mail' => $row['mail'],
         'usuario' => $row['mail']
       );
     }

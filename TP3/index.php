@@ -23,7 +23,7 @@
       </h1>
 
       <div class="container-input">
-        <input type="search" placeholder="Busqueda por apellido" name="search" class="input" id="search">
+        <input type="search" placeholder="Buscar tarea" name="search" class="input" id="search">
       </div>
 
       <ul class="acorh">
@@ -47,23 +47,15 @@
     <div class="card">
       <div class="card-body">
         <form class="form" id="task-form">
-          <p class="title">Ingrese el usuario</p>
+          <p class="title">Ingrese la tarea</p>
             <div class="flex">
               <label class="form-group">
                 <input required="" type="text" id="name" placeholder="Nombre" type="text" class="input1" class="form-control">
               </label>
               <label class="form-group">
-                <input required="" type="text" id="apellido" placeholder="Apellido" class="input1" class="form-control">
+                <input required="" type="text" id="description" placeholder="Descripción" class="input1" class="form-control">
               </label>
             </div>  
-                      
-            <label class="form-group">
-              <input required="" type="number" id="dni" placeholder="Dni" class="input1" class="form-control">
-            </label> 
-            <label class="form-group">
-              <input required="" type="email" id="mail" placeholder="Mail" class="input1" class="form-control" >
-            </label>
-
             <input type="hidden" id="taskId">
 
             <button class="submit">
@@ -79,10 +71,8 @@
         <thead>
           <tr>
             <td class="tgCabezera">Id</td>
-            <td class="tgCabezera">Nombre</td>
-            <td class="tgCabezera">Apellido</td>
-            <td class="tgCabezera">Dni</td>
-            <td class="tgCabezera">Mail</td>
+            <td class="tgCabezera">Name</td>
+            <td class="tgCabezera">Descripción</td>
             <td class="tgCabezera">Borrar</td>
             <td class="tgCabezera">Editar</td>
           </tr>

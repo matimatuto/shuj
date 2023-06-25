@@ -1,8 +1,8 @@
 <?php
 
   $servidor = "localhost";
-  $nombreusuario = "root";
-  $password = "";
+  $nombreusuario = "root1";
+  $password = "password";
   $db = "tablausuarios";
   $table = "todotabla";
   $table1 = "login";
@@ -30,11 +30,9 @@
   $sql = "CREATE TABLE IF NOT EXISTS $table 
   (
     id INT(8) AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    apellido VARCHAR(100) NOT NULL,
-    dni INT(8) NOT NULL,
-    mail VARCHAR(100) NOT NULL,
-    usuario VARCHAR(100) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    usuario VARCHAR(100) NOT NULL
   )";
 
   $sql1 = "CREATE TABLE IF NOT EXISTS $table1 

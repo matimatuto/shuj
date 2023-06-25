@@ -23,7 +23,7 @@ $(document).ready(function() {
             tasks.forEach(task => {
               template +=
               `
-                <li class="task-item">${task.name} ${task.apellido} | ${task.dni} | ${task.mail}</li>
+                <li class="task-item">${task.name} ${task.description}</li>
               ` 
             });
             $('#task-result').show();
@@ -42,10 +42,8 @@ $(document).ready(function() {
     e.preventDefault();
     const postData = {
       name: $('#name').val(),
-      apellido: $('#apellido').val(),
+      description: $('#description').val(),
       id: $('#taskId').val(),
-      dni: $('#dni').val(),
-      mail: $('#mail').val(),
     };
     const url = edit === false ? 'task-add.php' : 'task-edit.php';
     console.log(postData, url);
@@ -72,9 +70,7 @@ $(document).ready(function() {
                   <td>
                     ${task.name} 
                   </td>
-                  <td>${task.apellido}</td>
-                  <td>${task.dni}</td>
-                  <td>${task.mail}</td>
+                  <td>${task.description}</td>
                   <td>
                     <button class="task-delete btn btn-danger">
                      Delete 
@@ -101,10 +97,8 @@ $(document).ready(function() {
       console.log(response);
       const task = JSON.parse(response);
       $('#name').val(task.name);
-      $('#apellido').val(task.apellido);
+      $('#description').val(task.description);
       $('#taskId').val(task.id);
-      $('#dni').val(task.dni);
-      $('#mail').val(task.mail);
       edit = true;
     });
     e.preventDefault();

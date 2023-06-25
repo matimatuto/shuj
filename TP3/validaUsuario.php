@@ -8,7 +8,7 @@
     include('database.php');
 
     // Conectar a la BD
-    $conexion = mysqli_connect("localhost", "root", "", "tablausuarios");
+    $conexion = mysqli_connect("localhost", "root1", "password", "tablausuarios");
 
     if (!$conexion) {
         die("Error de conexión: " . mysqli_connect_error());

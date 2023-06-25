@@ -8,12 +8,10 @@
 
   if(isset($_POST['name'])) {
     $name = $_POST['name'];
-    $apellido = $_POST['apellido'];
-    $dni = $_POST['dni'];
-    $mail = $_POST['mail'];
+    $description = $_POST['description'];
     $usuario2 = $_SESSION['usuario'];
-    $query = "INSERT into todotabla(name, apellido, dni, mail, usuario) 
-              VALUES ('$name', '$apellido', '$dni', '$mail', '$usuario2')";
+    $query = "INSERT into todotabla(name, description, usuario) 
+              VALUES ('$name', '$description', '$usuario2')";
     $result = mysqli_query($connection, $query);
 
     if (!$result) {
