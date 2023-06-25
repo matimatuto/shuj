@@ -46,7 +46,6 @@ $(document).ready(function() {
       id: $('#taskId').val(),
       dni: $('#dni').val(),
       mail: $('#mail').val(),
-      usuario: $('#mail').val(),
     };
     const url = edit === false ? 'task-add.php' : 'task-edit.php';
     console.log(postData, url);

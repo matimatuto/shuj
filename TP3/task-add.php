@@ -1,4 +1,7 @@
 <?php
+
+  session_start();
+
   // $usuario = $_POST['email'];
 
   include('database.php');
@@ -8,8 +11,9 @@
     $apellido = $_POST['apellido'];
     $dni = $_POST['dni'];
     $mail = $_POST['mail'];
-    $usuario = $_POST['email'];
-    $query = "INSERT into todotabla(name, apellido, dni, mail, usuario) VALUES ('$name', '$apellido', '$dni', '$mail', '$usuario')";
+    $usuario2 = $_SESSION['usuario'];
+    $query = "INSERT into todotabla(name, apellido, dni, mail, usuario) 
+              VALUES ('$name', '$apellido', '$dni', '$mail', '$usuario2')";
     $result = mysqli_query($connection, $query);
 
     if (!$result) {

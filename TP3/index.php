@@ -5,9 +5,7 @@
   if($varsesion==null || $varsesion='')
   {
     header("location:inicio-sesion.html");
-
   }
-
 ?>
 
 <!DOCTYPE html>

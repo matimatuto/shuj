@@ -4,10 +4,7 @@
 
     session_start();
     $_SESSION['usuario'] = $usuario;
-
-
-
-
+    
     include('database.php');
 
     // Conectar a la BD
@@ -23,12 +20,12 @@
     if( $usuario == "ADMIN" &&  $contraseña == "ADMIN")
     {
         header("location:index.php");
-
     }
     else if ($resultado) {
         $filas = mysqli_num_rows($resultado);
         if ($filas > 0) {
             header("location:index.php");
+            
         } 
         else 
         {
