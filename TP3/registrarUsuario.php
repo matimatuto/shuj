@@ -19,13 +19,12 @@ $resultado = mysqli_query($connection, $consulta);
 if (mysqli_num_rows($resultado) > 0) {
     // El usuario ya existe
     echo "El usuario ya existe en la base de datos.";
-    
-} 
-else 
-{
+
+} else {
     // Insertar el nuevo usuario
     $consulta = "INSERT INTO login (mail, contraseña) VALUES ('$usuario', '$contraseña')";
     if (mysqli_query($connection, $consulta)) {
+        // Redirigir al usuario a index.html
         ?>
         <div>
             <script>window.location.href = "index.html"</script>;

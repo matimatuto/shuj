@@ -11,10 +11,22 @@ if (!$conexion) {
     die("Error de conexión: " . mysqli_connect_error());
 }
 
+
+
+
 $consulta = "SELECT * FROM login WHERE mail='$usuario' and contraseña='$contraseña'";
 $resultado = mysqli_query($conexion, $consulta);
 
-if ($resultado) {
+if( $usuario == "ADMIN" &&  $contraseña == "ADMIN")
+{
+    ?>
+    <div>
+        <!-- <h1>ADMIN</h1> -->
+        <script>window.location.href = "index.html"</script>;
+    </div>
+    <?php
+}
+elseif ($resultado) {
     $filas = mysqli_num_rows($resultado);
     if ($filas > 0) {
         ?>
@@ -22,14 +34,18 @@ if ($resultado) {
             <script>window.location.href = "index.html"</script>;
         </div>
         <?php
-    } else {
+    } 
+    else 
+    {
         ?>
         <div>
-        <script>window.location.href = "inicio-sesion.html"</script>;
+            <h1>Error</h1>
         </div>
         <?php
     }
-} else {
+} 
+else 
+{
     echo "Error en la consulta: " . mysqli_error($conexion);
 }
 
