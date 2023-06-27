@@ -1,9 +1,9 @@
 <?php
 
   $servidor = "localhost";
-  $nombreusuario = "root1";
-  $password = "password";
-  $db = "tablausuarios";
+  $nombreusuario = "ocho";
+  $password = "8421ocho2";
+  $db = "ocho";
   $table = "todotabla";
   $table1 = "login";
 
