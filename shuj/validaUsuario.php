@@ -14,7 +14,7 @@
         die("Error de conexión: " . mysqli_connect_error());
     }
 
-    $consulta = "SELECT * FROM login WHERE mail='$usuario' and contraseña='$contraseña'";
+    $consulta = "SELECT * FROM login WHERE usuario='$usuario' and password='$contraseña'";
     $resultado = mysqli_query($conexion, $consulta);
 
     if( $usuario == "ADMIN" &&  $contraseña == "ADMIN")

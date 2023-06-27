@@ -18,9 +18,9 @@
     while($row = mysqli_fetch_array($result)) {
       $json[] = array(
         'name' => $row['name'],
+        'usuario' => $row['usuario'],
         'description' => $row['description'],
-        'id' => $row['id'],
-        'usuario' => $row['usuario']
+        'id' => $row['id']
       );
     }
     $jsonstring = json_encode($json);

@@ -22,7 +22,7 @@
 
     } else {
         // Insertar el nuevo usuario
-        $consulta = "INSERT INTO login (mail, contraseña) VALUES ('$usuario', '$contraseña')";
+        $consulta = "INSERT INTO login (usuario, password) VALUES ('$usuario', '$contraseña')";
         if (mysqli_query($connection, $consulta)) {
             // Redirigir al usuario a index.php
             ?>
